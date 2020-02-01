@@ -27,5 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 
 $str = get_string('pluginname', 'tool_wpgenerator');
 $url = "$CFG->wwwroot/$CFG->admin/tool/wpgenerator/index.php";
-$adminexternalpage = new admin_externalpage('tool_wpgenerator', $str, $url, 'moodle/site:uploadusers');
+$adminexternalpage = new admin_externalpage('tool_wpgenerator', $str, $url, 'tool/program:edit');
 $ADMIN->add('development', $adminexternalpage);

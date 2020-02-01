@@ -24,3 +24,6 @@ $string['pluginname'] = 'Workplace generator';
 $string['formmsg'] = 'This tool creates a new program with courses';
 $string['programfullname'] = 'Program full name';
 $string['missingfullname'] = 'Program name is missing';
+$string['programcreated'] = 'Program created succesfully';
+$string['generateprogram'] = 'Generate program';
+

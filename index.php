@@ -26,18 +26,19 @@ require_login();
 
 // Check debugging is set to DEVELOPER.
 if (!debugging('', DEBUG_DEVELOPER)) {
-    echo $OUTPUT->notification(get_string('error_notdebugging', 'tool_generator'));
+    echo $OUTPUT->nxxotification(get_string('error_notdebugging', 'tool_generator'));
     echo $OUTPUT->footer();
     exit;
 }
 
 $url = new moodle_url('/admin/tool/wpgenerator/index.php');
 
+$wpgeneratorstr = get_string('pluginname', 'tool_wpgenerator');
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('report');
-$PAGE->set_title('Workplace generator');
-$PAGE->set_heading(get_string('pluginname', 'tool_wpgenerator'));
+$PAGE->set_title($wpgeneratorstr);
+$PAGE->set_heading($wpgeneratorstr);
 $PAGE->navbar->add(get_string('home'), new moodle_url($url));
 
 $mform = new tool_wpgenerator_form(null,  []);
@@ -50,10 +51,12 @@ if ($mform->is_cancelled()) {
     $generator = new \tool_wpgenerator\generator();
     $generator->generate_program($data);
 
-    redirect($url);
+    $programcreatedstr = get_string('programcreated', 'tool_wpgenerator');
+    redirect($url, $programcreatedstr, null, \core\output\notification::NOTIFY_SUCCESS);
+
 }
 
-// Display.
+// Display form.
 echo $OUTPUT->header();
 $mform->display();
 echo $OUTPUT->footer();

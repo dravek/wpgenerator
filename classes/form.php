@@ -45,6 +45,6 @@ class tool_wpgenerator_form extends moodleform {
         $missingfullnamestr = get_string('missingfullname', 'tool_wpgenerator');
         $mform->addRule('fullname', $missingfullnamestr, 'required', null, 'client');
 
-        $this->add_action_buttons(false, 'Generate program');
+        $this->add_action_buttons(false, get_string('generateprogram', 'tool_wpgenerator'));
     }
 }
